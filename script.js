@@ -1,5 +1,5 @@
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
   const pages = {
     dashboard: document.getElementById("dashboard-screen"),
     camera: document.getElementById("camera-screen"),
@@ -10,41 +10,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const buttons = document.querySelectorAll(".nav-button");
 
-  function showPage(pageName) {
-    if (!pages[pageName]) return;
+  function showPage(name) {
+    if (!pages[name]) return;
 
     // Barcha sahifalarni yashirish
-    Object.values(pages).forEach(page => {
-      page.hidden = true;
-      page.classList.remove("active");
+    Object.keys(pages).forEach(function (key) {
+      pages[key].hidden = true;
     });
 
-    // Tanlangan sahifani ko'rsatish
-    pages[pageName].hidden = false;
-    pages[pageName].classList.add("active");
+    // Kerakli sahifani ochish
+    pages[name].hidden = false;
 
-    // Pastki menyu holatini yangilash
-    buttons.forEach(button => {
+    // Menyu tugmalarini yangilash
+    buttons.forEach(function (button) {
       button.classList.toggle(
         "active",
-        button.dataset.page === pageName
+        button.dataset.page === name
       );
     });
   }
 
-  // Pastki menyu tugmalari
-  buttons.forEach(button => {
-    button.addEventListener("click", () => {
+  // Pastki menyu
+  buttons.forEach(function (button) {
+    button.addEventListener("click", function () {
       showPage(button.dataset.page);
     });
   });
 
-  // Dashboard ichidagi OPEN MEDIA tugmasi
-  document.querySelectorAll("[data-page]").forEach(button => {
-    button.addEventListener("click", () => {
-      showPage(button.dataset.page);
+  // Dashboard ichidagi Media tugmasi
+  const openMedia = document.querySelector(".open-media");
+
+  if (openMedia) {
+    openMedia.addEventListener("click", function () {
+      showPage("media");
     });
-  });
+  }
 
   // Soat
   function updateClock() {
@@ -64,6 +64,6 @@ document.addEventListener("DOMContentLoaded", () => {
   updateClock();
   setInterval(updateClock, 1000);
 
-  // Dastur ochilganda Dashboard
+  // Boshlang'ich sahifa
   showPage("dashboard");
 });
