@@ -139,3 +139,30 @@ body {
 .bottom-menu button:active {
   transform: scale(0.9);
 }
+
+/* PHYSICAL MULTIMEDIA SCREEN */
+
+body {
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  overflow: hidden;
+}
+
+#app {
+  width: 90vw;
+  height: 90dvh;
+  max-width: 420px;
+  max-height: 900px;
+  min-height: 0;
+
+  border: 2px solid #292929;
+  border-radius: 28px;
+  overflow: hidden;
+
+  background: #050505;
+  padding: 12px;
+  box-shadow: 0 0 35px rgba(255,255,255,0.06);
+}
