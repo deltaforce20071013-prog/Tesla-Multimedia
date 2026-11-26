@@ -146,3 +146,7 @@ html, body {
   width: 85%;
   height: 85%;
 }
+#main-screen[hidden],
+#camera-screen[hidden] {
+  display: none !important;
+}
