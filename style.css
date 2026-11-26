@@ -10,29 +10,29 @@ html, body {
   height: 100%;
   overflow: hidden;
   background: #000;
-  font-family: Arial, sans-serif;
   color: #fff;
+  font-family: Arial, sans-serif;
 }
 
 #stage {
   width: 100%;
   height: 100dvh;
   display: flex;
-  justify-content: center;
   align-items: center;
-  background: #000;
+  justify-content: center;
   overflow: hidden;
+  background: #000;
 }
 
 #monitor {
   width: min(96vw, 177.78dvh, 1100px);
   aspect-ratio: 16 / 9;
-  padding: 7px;
-  background: linear-gradient(145deg, #555, #111, #444);
-  border: 2px solid #666;
-  border-radius: 22px;
-  box-shadow: 0 10px 40px #222;
   flex-shrink: 0;
+  padding: 7px;
+  border: 2px solid #555;
+  border-radius: 22px;
+  background: linear-gradient(145deg, #555, #111, #444);
+  box-shadow: 0 10px 40px #222;
 }
 
 #app {
@@ -54,8 +54,8 @@ html, body {
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid #292929;
-  font-size: 10px;
   color: #aaa;
+  font-size: 10px;
 }
 
 .top-left, .top-right {
@@ -65,7 +65,7 @@ html, body {
 }
 
 #clock {
-  color: white;
+  color: #fff;
   font-size: 13px;
   font-weight: bold;
 }
@@ -95,9 +95,9 @@ html, body {
 }
 
 #content {
+  position: relative;
   flex: 1;
   min-height: 0;
-  position: relative;
   overflow: hidden;
 }
 
@@ -112,35 +112,40 @@ html, body {
   display: none !important;
 }
 
-#dashboard-screen {
+#dashboard-screen,
+#camera-screen,
+#media-screen,
+#phone-screen,
+#settings-screen {
   display: flex;
+  flex-direction: column;
 }
 
 .dashboard-grid {
-  display: grid;
-  grid-template-columns: 0.85fr 2fr 1fr;
-  gap: 9px;
   width: 100%;
   height: 100%;
   min-height: 0;
+  display: grid;
+  grid-template-columns: .85fr 2fr 1fr;
+  gap: 9px;
 }
 
 .panel {
   min-width: 0;
   min-height: 0;
   padding: 10px;
+  overflow: hidden;
   border: 1px solid #292929;
   border-radius: 11px;
   background: #151515;
-  overflow: hidden;
 }
 
 .panel-title {
   height: 20px;
   color: #aaa;
   font-size: 10px;
-  letter-spacing: 2px;
   font-weight: bold;
+  letter-spacing: 2px;
 }
 
 .vehicle-panel {
@@ -150,10 +155,10 @@ html, body {
 
 .vehicle-info {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  font-size: 10px;
+  justify-content: space-between;
   color: #ccc;
+  font-size: 10px;
 }
 
 .vehicle-status {
@@ -168,15 +173,15 @@ html, body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: radial-gradient(ellipse, #303030, #111 70%);
-  border-radius: 8px;
   margin: 5px 0;
+  border-radius: 8px;
+  background: radial-gradient(ellipse, #303030, #111 70%);
 }
 
 .car-svg {
   display: block;
-  height: 94%;
   width: 90%;
+  height: 94%;
   max-width: 180px;
 }
 
@@ -201,15 +206,16 @@ html, body {
   font-size: 8px;
 }
 
+/* NAVIGATION MAP */
 .navigation-panel {
   display: flex;
   flex-direction: column;
 }
 
 .map-area {
+  position: relative;
   flex: 1;
   min-height: 0;
-  position: relative;
   overflow: hidden;
   border-radius: 8px;
   background-color: #1c292d;
@@ -221,9 +227,9 @@ html, body {
 
 .map-roads {
   position: absolute;
+  border: 2px solid #718087;
   background: #526166;
   opacity: .8;
-  border: 2px solid #718087;
 }
 
 .road-one {
@@ -245,24 +251,24 @@ html, body {
 .road-three {
   width: 12px;
   height: 130%;
-  left: 34%;
   top: -15%;
+  left: 34%;
   transform: rotate(15deg);
 }
 
 .road-four {
   width: 10px;
   height: 130%;
-  right: 25%;
   top: -15%;
+  right: 25%;
   transform: rotate(-20deg);
 }
 
 .map-block {
   position: absolute;
-  background: #26383a;
   border: 1px solid #405458;
   border-radius: 5px;
+  background: #26383a;
 }
 
 .block-one { width: 20%; height: 17%; top: 10%; left: 10%; }
@@ -272,12 +278,12 @@ html, body {
 
 .map-route {
   position: absolute;
+  top: 27%;
+  left: 34%;
   width: 38%;
   height: 45%;
-  left: 34%;
-  top: 27%;
-  border-left: 4px solid #45a8ff;
   border-top: 4px solid #45a8ff;
+  border-left: 4px solid #45a8ff;
   border-radius: 35px 0 0 0;
   transform: rotate(-12deg);
 }
@@ -295,19 +301,20 @@ html, body {
   position: absolute;
   top: calc(45% + 28px);
   left: 43%;
-  font-size: 8px;
   color: white;
+  font-size: 8px;
 }
 
 .map-caption {
   position: absolute;
-  bottom: 8px;
   right: 9px;
+  bottom: 8px;
   color: #9baeb2;
   font-size: 8px;
   letter-spacing: 2px;
 }
 
+/* MEDIA PLAYER */
 .music-panel {
   display: flex;
   flex-direction: column;
@@ -318,16 +325,16 @@ html, body {
   min-height: 45px;
   max-height: 45%;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   margin: 4px 0 8px;
   border-radius: 8px;
   background: linear-gradient(145deg, #303e48, #111820);
 }
 
 .album-art span {
-  font-size: 42px;
   color: #b9c8d3;
+  font-size: 42px;
 }
 
 .track-info {
@@ -336,20 +343,14 @@ html, body {
   gap: 4px;
 }
 
-.track-info strong {
-  font-size: 10px;
-}
-
-.track-info small {
-  color: #888;
-  font-size: 9px;
-}
+.track-info strong { font-size: 10px; }
+.track-info small { color: #888; font-size: 9px; }
 
 .progress-track {
   height: 3px;
   margin-top: 12px;
-  background: #444;
   border-radius: 5px;
+  background: #444;
 }
 
 .progress-track span {
@@ -369,8 +370,8 @@ html, body {
 
 .player-controls {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   gap: 15px;
   margin: 8px 0;
 }
@@ -386,9 +387,9 @@ html, body {
 .play-button {
   width: 30px;
   height: 30px;
-  border-radius: 50% !important;
-  background: #eee !important;
+  border-radius: 50%;
   color: #111 !important;
+  background: #eee !important;
 }
 
 .open-media {
@@ -396,8 +397,8 @@ html, body {
   padding: 7px;
   border: 1px solid #555;
   border-radius: 6px;
-  background: #252525;
   color: white;
+  background: #252525;
   font-size: 9px;
   letter-spacing: 1px;
 }
@@ -407,35 +408,30 @@ html, body {
   height: 48px;
   flex-shrink: 0;
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  background: #181818;
+  justify-content: space-around;
   border: 1px solid #292929;
   border-radius: 10px;
+  background: #181818;
 }
 
 .nav-button {
   min-width: 48px;
   height: 42px;
-  padding: 3px 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 2px;
+  padding: 3px 8px;
   border: 0;
   border-radius: 7px;
   color: #999;
   background: transparent;
 }
 
-.nav-button span {
-  font-size: 17px;
-}
-
-.nav-button small {
-  font-size: 8px;
-}
+.nav-button span { font-size: 17px; }
+.nav-button small { font-size: 8px; }
 
 .nav-button.active {
   color: white;
@@ -446,8 +442,8 @@ html, body {
 .page-heading {
   height: 35px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   padding: 0 5px;
 }
 
@@ -462,11 +458,7 @@ html, body {
   letter-spacing: 1px;
 }
 
-#camera-screen {
-  display: flex;
-  flex-direction: column;
-}
-
+/* CAMERA */
 .camera-grid {
   flex: 1;
   min-height: 0;
@@ -479,14 +471,12 @@ html, body {
 .camera-view {
   position: relative;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   overflow: hidden;
   border: 1px solid #444;
   border-radius: 9px;
-  background:
-    linear-gradient(135deg, transparent 45%, #ffffff0c 46%, transparent 48%),
-    linear-gradient(135deg, #293a40, #090d10);
+  background: linear-gradient(135deg, #293a40, #090d10);
 }
 
 .camera-view span {
@@ -508,26 +498,20 @@ html, body {
   height: 22px;
   flex-shrink: 0;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   color: #888;
   font-size: 9px;
 }
 
-#media-screen,
-#phone-screen,
-#settings-screen {
-  display: flex;
-  flex-direction: column;
-}
-
+/* MEDIA PAGE */
 .media-content,
 .simple-content {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   gap: 12px;
   text-align: center;
 }
@@ -536,8 +520,8 @@ html, body {
   width: 125px;
   height: 125px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   border-radius: 15px;
   background: linear-gradient(145deg, #344653, #111820);
   font-size: 65px;
@@ -566,10 +550,11 @@ html, body {
 }
 
 .large-icon {
-  font-size: 55px;
   color: #bbb;
+  font-size: 55px;
 }
 
+/* SETTINGS */
 .settings-list {
   display: flex;
   flex-direction: column;
@@ -580,17 +565,17 @@ html, body {
 .setting-row {
   min-height: 42px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   padding: 0 13px;
   border: 1px solid #303030;
   border-radius: 8px;
+  color: #ddd;
   background: #191919;
   font-size: 11px;
-  color: #ddd;
 }
 
-/* PHONE PORTRAIT: LANDSCAPE MONITOR */
+/* PORTRAIT PHONE */
 @media (orientation: portrait) {
   #monitor {
     width: min(96dvh, 177.78dvw);
@@ -598,7 +583,7 @@ html, body {
   }
 }
 
-/* SMALL SCREENS */
+/* SHORT SCREENS */
 @media (max-height: 420px) and (orientation: landscape) {
   #monitor {
     width: min(98vw, 177.78dvh);
@@ -610,11 +595,6 @@ html, body {
     padding: 6px;
   }
 
-  .top-bar {
-    height: 25px;
-  }
-
-  .bottom-menu {
-    height: 40px;
-  }
+  .top-bar { height: 25px; }
+  .bottom-menu { height: 40px; }
 }
