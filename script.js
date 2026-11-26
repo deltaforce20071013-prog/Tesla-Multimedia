@@ -1,64 +1,52 @@
 
 document.addEventListener("DOMContentLoaded", () => {
+  const pages = {
+    dashboard: document.getElementById("dashboard-screen"),
+    camera: document.getElementById("camera-screen"),
+    media: document.getElementById("media-screen"),
+    phone: document.getElementById("phone-screen"),
+    settings: document.getElementById("settings-screen")
+  };
 
-  // EKRANLAR
-  const dashboard = document.getElementById("main-screen");
-  const cameraScreen = document.getElementById("camera-screen");
+  const buttons = document.querySelectorAll(".nav-button");
 
-  // TUGMALAR
-  const vehicleBtn = document.getElementById("vehicleBtn");
-  const musicBtn = document.getElementById("musicBtn");
-  const cameraBtn = document.getElementById("cameraBtn");
-  const phoneBtn = document.getElementById("phoneBtn");
-  const settingsBtn = document.getElementById("settingsBtn");
+  function showPage(pageName) {
+    if (!pages[pageName]) return;
 
-  // EKRAN ALMASHTIRISH
-  function showScreen(screenName) {
+    // Barcha sahifalarni yashirish
+    Object.values(pages).forEach(page => {
+      page.hidden = true;
+      page.classList.remove("active");
+    });
 
-    dashboard.hidden = screenName !== "dashboard";
-    cameraScreen.hidden = screenName !== "camera";
+    // Tanlangan sahifani ko'rsatish
+    pages[pageName].hidden = false;
+    pages[pageName].classList.add("active");
 
-    // Tanlangan tugmani belgilash
-    document.querySelectorAll(".bottom-menu button")
-      .forEach(button => button.classList.remove("active"));
-
-    const activeButtons = {
-      dashboard: vehicleBtn,
-      camera: cameraBtn
-    };
-
-    if (activeButtons[screenName]) {
-      activeButtons[screenName].classList.add("active");
-    }
+    // Pastki menyu holatini yangilash
+    buttons.forEach(button => {
+      button.classList.toggle(
+        "active",
+        button.dataset.page === pageName
+      );
+    });
   }
 
-  // AVTOMOBIL — ASOSIY DASHBOARD
-  vehicleBtn.addEventListener("click", () => {
-    showScreen("dashboard");
+  // Pastki menyu tugmalari
+  buttons.forEach(button => {
+    button.addEventListener("click", () => {
+      showPage(button.dataset.page);
+    });
   });
 
-  // KAMERA
-  cameraBtn.addEventListener("click", () => {
-    showScreen("camera");
+  // Dashboard ichidagi OPEN MEDIA tugmasi
+  document.querySelectorAll("[data-page]").forEach(button => {
+    button.addEventListener("click", () => {
+      showPage(button.dataset.page);
+    });
   });
 
-  // HOZIRCHA KEYINGI BOSQICHLAR UCHUN
-  musicBtn.addEventListener("click", () => {
-    showScreen("dashboard");
-    alert("Media bo‘limi keyingi bosqichda yaratiladi.");
-  });
-
-  phoneBtn.addEventListener("click", () => {
-    showScreen("dashboard");
-    alert("Telefon bo‘limi keyingi bosqichda yaratiladi.");
-  });
-
-  settingsBtn.addEventListener("click", () => {
-    showScreen("dashboard");
-    alert("Sozlamalar keyingi bosqichda yaratiladi.");
-  });
-
-  // SOAT
+  // Soat
   function updateClock() {
     const clock = document.getElementById("clock");
 
@@ -76,7 +64,6 @@ document.addEventListener("DOMContentLoaded", () => {
   updateClock();
   setInterval(updateClock, 1000);
 
-  // BOSHLANG‘ICH EKRAN
-  showScreen("dashboard");
-
+  // Dastur ochilganda Dashboard
+  showPage("dashboard");
 });
