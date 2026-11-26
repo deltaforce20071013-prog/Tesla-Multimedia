@@ -126,3 +126,23 @@ html, body {
   font-size: 19px;
   padding: 5px;
 }
+#vehicle-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.vehicle-placeholder {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.vehicle-placeholder svg {
+  display: block;
+  width: 85%;
+  height: 85%;
+}
