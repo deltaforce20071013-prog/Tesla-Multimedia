@@ -1,34 +1,82 @@
 
-const dashboard = document.getElementById("main-screen");
-const cameraScreen = document.getElementById("camera-screen");
+document.addEventListener("DOMContentLoaded", () => {
 
-const vehicleBtn = document.getElementById("vehicleBtn");
-const cameraBtn = document.getElementById("cameraBtn");
+  // EKRANLAR
+  const dashboard = document.getElementById("main-screen");
+  const cameraScreen = document.getElementById("camera-screen");
 
-function showScreen(screen) {
-  dashboard.hidden = screen !== "dashboard";
-  cameraScreen.hidden = screen !== "camera";
-}
+  // TUGMALAR
+  const vehicleBtn = document.getElementById("vehicleBtn");
+  const musicBtn = document.getElementById("musicBtn");
+  const cameraBtn = document.getElementById("cameraBtn");
+  const phoneBtn = document.getElementById("phoneBtn");
+  const settingsBtn = document.getElementById("settingsBtn");
 
-vehicleBtn.addEventListener("click", () => {
-  showScreen("dashboard");
-});
+  // EKRAN ALMASHTIRISH
+  function showScreen(screenName) {
 
-cameraBtn.addEventListener("click", () => {
-  showScreen("camera");
-});
+    dashboard.hidden = screenName !== "dashboard";
+    cameraScreen.hidden = screenName !== "camera";
 
-// Real vaqt soati
-function updateClock() {
-  const now = new Date();
+    // Tanlangan tugmani belgilash
+    document.querySelectorAll(".bottom-menu button")
+      .forEach(button => button.classList.remove("active"));
 
-  document.getElementById("clock").textContent =
-    now.toLocaleTimeString("uz-UZ", {
+    const activeButtons = {
+      dashboard: vehicleBtn,
+      camera: cameraBtn
+    };
+
+    if (activeButtons[screenName]) {
+      activeButtons[screenName].classList.add("active");
+    }
+  }
+
+  // AVTOMOBIL — ASOSIY DASHBOARD
+  vehicleBtn.addEventListener("click", () => {
+    showScreen("dashboard");
+  });
+
+  // KAMERA
+  cameraBtn.addEventListener("click", () => {
+    showScreen("camera");
+  });
+
+  // HOZIRCHA KEYINGI BOSQICHLAR UCHUN
+  musicBtn.addEventListener("click", () => {
+    showScreen("dashboard");
+    alert("Media bo‘limi keyingi bosqichda yaratiladi.");
+  });
+
+  phoneBtn.addEventListener("click", () => {
+    showScreen("dashboard");
+    alert("Telefon bo‘limi keyingi bosqichda yaratiladi.");
+  });
+
+  settingsBtn.addEventListener("click", () => {
+    showScreen("dashboard");
+    alert("Sozlamalar keyingi bosqichda yaratiladi.");
+  });
+
+  // SOAT
+  function updateClock() {
+    const clock = document.getElementById("clock");
+
+    if (!clock) return;
+
+    const now = new Date();
+
+    clock.textContent = now.toLocaleTimeString("uz-UZ", {
       hour: "2-digit",
       minute: "2-digit",
       hour12: false
     });
-}
+  }
 
-updateClock();
-setInterval(updateClock, 1000);
+  updateClock();
+  setInterval(updateClock, 1000);
+
+  // BOSHLANG‘ICH EKRAN
+  showScreen("dashboard");
+
+});
