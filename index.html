@@ -20,9 +20,34 @@
     <main id="main-screen">
       <section id="vehicle-section">
         <h2>My Vehicle</h2>
-        <div class="vehicle-placeholder">
-          VEHICLE DISPLAY
-        </div>
+        
+<div class="vehicle-placeholder">
+  <svg viewBox="0 0 220 360" width="85%" height="85%">
+    <defs>
+      <linearGradient id="carPaint" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#777"/>
+        <stop offset="50%" stop-color="#292929"/>
+        <stop offset="100%" stop-color="#111"/>
+      </linearGradient>
+    </defs>
+    <rect x="25" y="85" width="22" height="65" rx="7" fill="#050505"/>
+    <rect x="173" y="85" width="22" height="65" rx="7" fill="#050505"/>
+    <rect x="25" y="215" width="22" height="65" rx="7" fill="#050505"/>
+    <rect x="173" y="215" width="22" height="65" rx="7" fill="#050505"/>
+    <path d="M75 15 Q110 0 145 15 L175 65 Q188 90 188 125 L188 265 Q188 310 155 340 Q110 360 65 340 Q32 310 32 265 L32 125 Q32 90 45 65 Z"
+      fill="url(#carPaint)" stroke="#aaa" stroke-width="2"/>
+    <path d="M67 70 Q110 48 153 70 L165 135 L55 135 Z"
+      fill="#263b48" stroke="#777" stroke-width="2"/>
+    <path d="M55 145 L165 145 L165 235 L55 235 Z"
+      fill="#18252e" stroke="#777" stroke-width="2"/>
+    <path d="M55 245 L165 245 L153 300 Q110 325 67 300 Z"
+      fill="#263b48" stroke="#777" stroke-width="2"/>
+    <path d="M45 38 L72 32 M175 38 L148 32"
+      stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+    <path d="M65 320 L155 320" stroke="#f33" stroke-width="5"/>
+  </svg>
+</div>
+        
       </section>
 
       <section id="navigation-section">
