@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <meta name="theme-color" content="#050607">
+
+  <title>Tesla Multimedia</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css?v=34">
+
+  <!-- Leaflet MAP -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  >
+</head>
+
+<body>
+
+<div id="stage">
+
+  <div id="monitor">
+
+    <div id="app">
+
+      <!-- TOP BAR -->
+
+      <header class="top-bar">
+
+        <span id="clock">00:00</span>
+
+        <h1>TESLA</h1>
+
+        <span class="status-online">● SYSTEM ONLINE</span>
+
+      </header>
+
+
+      <!-- =========================
+           DASHBOARD
+      ========================== -->
+
+      <main id="dashboard">
+
+        <!-- VEHICLE CARD -->
+
+        <section id="vehicle-section"
+                 class="dashboard-card">
+
+          <h2>VEHICLE</h2>
+
+          <button
+            type="button"
+            data-open="vehicle"
+            style="flex:1;min-height:0;width:100%;
+                   border:0;background:transparent;
+                   cursor:pointer;">
+
+            <div class="vehicle-placeholder">
+
+              <!-- TESLA MODEL S TOP VIEW SVG -->
+
+              <svg viewBox="0 0 220 420"
+                   xmlns="http://www.w3.org/2000/svg">
+
+                <defs>
+                  <linearGradient id="carPaint"
+                                  x1="0" y1="0"
+                                  x2="1" y2="1">
+
+                    <stop offset="0%" stop-color="#f5f7fa"/>
+                    <stop offset="45%" stop-color="#8c969e"/>
+                    <stop offset="100%" stop-color="#303940"/>
+
+                  </linearGradient>
+
+                  <linearGradient id="glass"
+                                  x1="0" y1="0"
+                                  x2="0" y2="1">
+
+                    <stop offset="0%" stop-color="#17232c"/>
+                    <stop offset="100%" stop-color="#52616d"/>
+
+                  </linearGradient>
+
+                </defs>
+
+                <!-- SHADOW -->
+
+                <ellipse cx="110" cy="210"
+                         rx="88" ry="195"
+                         fill="#000"
+                         opacity=".65"/>
+
+                <!-- TIRES -->
+
+                <g fill="#090b0d"
+                   stroke="#555d63"
+                   stroke-width="3">
+
+                  <rect x="18" y="75"
+                        width="28" height="83"
+                        rx="10"/>
+
+                  <rect x="174" y="75"
+                        width="28" height="83"
+                        rx="10"/>
+
+                  <rect x="18" y="265"
+                        width="28" height="83"
+                        rx="10"/>
+
+                  <rect x="174" y="265"
+                        width="28" height="83"
+                        rx="10"/>
+
+                </g>
+
+                <!-- BODY -->
+
+                <path
+                  d="M110 15
+                     C75 15 58 35 49 69
+                     L35 126
+                     L29 190
+                     L29 285
+                     L43 351
+                     C52 387 75 405 110 405
+                     C145 405 168 387 177 351
+                     L191 285
+                     L191 190
+                     L185 126
+                     L171 69
+                     C162 35 145 15 110 15Z"
+                  fill="url(#carPaint)"
+                  stroke="#d7dce0"
+                  stroke-width="3"/>
+
+                <!-- FRONT GLASS -->
+
+                <path
+                  d="M61 83
+                     Q110 49 159 83
+                     L172 145
+                     L48 145Z"
+                  fill="url(#glass)"
+                  stroke="#303b43"
+                  stroke-width="3"/>
+
+                <!-- ROOF -->
+
+                <path
+                  d="M48 153
+                     Q110 137 172 153
+                     L168 267
+                     Q110 285 52 267Z"
+                  fill="#252f36"
+                  stroke="#8d989f"
+                  stroke-width="2"/>
+
+                <!-- PANORAMIC ROOF -->
+
+                <path
+                  d="M58 163
+                     Q110 150 162 163
+                     L158 255
+                     Q110 268 62 255Z"
+                  fill="#17232b"
+                  stroke="#66737c"
+                  stroke-width="2"/>
+
+                <!-- REAR GLASS -->
+
+                <path
+                  d="M52 278
+                     Q110 265 168 278
+                     L158 340
+                     Q110 366 62 340Z"
+                  fill="url(#glass)"
+                  stroke="#303b43"
+                  stroke-width="3"/>
+
+                <!-- LIGHTS -->
+
+                <path d="M48 34 L77 25 L70 39 L47 47Z"
+                      fill="#f4f8ff"/>
+
+                <path d="M172 34 L143 25 L150 39 L173 47Z"
+                      fill="#f4f8ff"/>
+
+                <path d="M43 365 L76 378 L69 389 L51 380Z"
+                      fill="#e33131"/>
+
+                <path d="M177 365 L144 378 L151 389 L169 380Z"
+                      fill="#e33131"/>
+
+                <!-- TESLA LOGO -->
+
+                <text x="110" y="215"
+                      text-anchor="middle"
+                      fill="#ffffff"
+                      font-size="22"
+                      font-weight="bold">T</text>
+
+                <!-- DETAILS -->
+
+                <path d="M30 190 L190 190"
+                      stroke="#cbd2d7"
+                      opacity=".4"/>
+
+                <path d="M30 285 L190 285"
+                      stroke="#cbd2d7"
+                      opacity=".4"/>
+
+              </svg>
+
+            </div>
+
+          </button>
+
+          <div class="vehicle-info">
+
+            <span>MODEL S</span>
+            <span>100%</span>
+
+          </div>
+
+        </section>
+
+
+        <!-- MAP CARD -->
+
+        <section id="navigation-section"
+                 class="dashboard-card">
+
+          <h2>NAVIGATION</h2>
+
+          <button
+            type="button"
+            data-open="navigation"
+            style="flex:1;min-height:0;
+                   display:flex;width:100%;
+                   border:0;background:transparent;">
+
+            <div class="map-placeholder">
+
+              <div style="color:#aebbc3;
+                          text-align:center;">
+
+                <div style="font-size:35px;">📍</div>
+
+                <p>OPEN NAVIGATION</p>
+
+              </div>
+
+            </div>
+
+          </button>
+
+          <div class="vehicle-info">
+
+            <span>GPS NAVIGATION</span>
+            <span id="dashCoords">--, --</span>
+
+          </div>
+
+        </section>
+
+
+        <!-- MUSIC CARD -->
+
+        <section id="music-section"
+                 class="dashboard-card">
+
+          <h2>MEDIA PLAYER</h2>
+
+          <div class="music-placeholder">
+
+            <div class="music-icon">♫</div>
+
+            <div style="text-align:center;">
+
+              <strong id="dashTrack">
+                No music selected
+              </strong>
+
+              <p id="dashArtist">
+                Choose an audio file
+              </p>
+
+            </div>
+
+            <div class="music-controls">
+
+              <button id="dashPrev">⏮</button>
+
+              <button id="dashPlay">▶</button>
+
+              <button id="dashNext">⏭</button>
+
+            </div>
+
+            <div style="width:85%;
+                        height:3px;
+                        background:#555;
+                        border-radius:5px;">
+
+              <div id="dashProgress"
+                   style="width:0%;
+                          height:100%;
+                          background:var(--accent);">
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+      </main>
+
+
+      <!-- =========================
+           VEHICLE PAGE
+      ========================== -->
+
+      <section id="vehicle" hidden>
+
+        <div class="page-header">
+
+          <h2>VEHICLE 360°</h2>
+
+          <button class="back-btn"
+                  data-back>
+            ← BACK
+          </button>
+
+        </div>
+
+        <div class="vehicle-view">
+
+          <svg id="rotatingCar"
+               viewBox="0 0 220 420"
+               xmlns="http://www.w3.org/2000/svg">
+
+            <rect x="35" y="20"
+                  width="150" height="380"
+                  rx="65"
+                  fill="#aab3bb"
+                  stroke="#fff"
+                  stroke-width="4"/>
+
+            <rect x="52" y="90"
+                  width="116" height="100"
+                  rx="25"
+                  fill="#263b4b"/>
+
+            <rect x="52" y="215"
+                  width="116" height="95"
+                  rx="20"
+                  fill="#263b4b"/>
+
+            <rect x="19" y="75"
+                  width="25" height="75"
+                  rx="8"
+                  fill="#090b0d"/>
+
+            <rect x="176" y="75"
+                  width="25" height="75"
+                  rx="8"
+                  fill="#090b0d"/>
+
+            <rect x="19" y="270"
+                  width="25" height="75"
+                  rx="8"
+                  fill="#090b0d"/>
+
+            <rect x="176" y="270"
+                  width="25" height="75"
+                  rx="8"
+                  fill="#090b0d"/>
+
+            <text x="110" y="210"
+                  fill="white"
+                  font-size="20"
+                  text-anchor="middle">T</text>
+
+          </svg>
+
+        </div>
+
+        <div class="vehicle-tools">
+
+          <button data-angle="0">TOP</button>
+          <button data-angle="90">90°</button>
+          <button data-angle="180">180°</button>
+          <button data-angle="270">270°</button>
+
+          <input id="rotation"
+                 type="range"
+                 min="0"
+                 max="360"
+                 value="0">
+
+          <span id="angleLabel">TOP VIEW · 0°</span>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           NAVIGATION PAGE
+      ========================== -->
+
+      <section id="navigation" hidden>
+
+        <div class="page-header">
+
+          <h2>GPS NAVIGATION</h2>
+
+          <button class="back-btn"
+                  data-back>
+            ← BACK
+          </button>
+
+        </div>
+
+        <div class="navigation-tools">
+
+          <input
+            id="placeSearch"
+            type="search"
+            placeholder="Search city or address..."
+          >
+
+          <button id="searchPlace"
+                  class="primary-btn">
+            SEARCH
+          </button>
+
+          <button id="locateBtn"
+                  class="primary-btn">
+            GPS
+          </button>
+
+          <button id="dropPin"
+                  class="primary-btn">
+            📍 PIN
+          </button>
+
+        </div>
+
+        <div id="liveMap"></div>
+
+        <div class="map-information">
+
+          <h3 id="placeName">
+            Map location
+          </h3>
+
+          <p id="placeDetails">
+            Search for a place or use GPS.
+          </p>
+
+          <p id="placeCoords"></p>
+
+          <p id="gpsStatus">
+            GPS: READY
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           MEDIA PAGE
+      ========================== -->
+
+      <section id="media" hidden>
+
+        <div class="page-header">
+
+          <h2>MEDIA PLAYER</h2>
+
+          <button class="back-btn"
+                  data-back>
+            ← BACK
+          </button>
+
+        </div>
+
+        <div class="media-content">
+
+          <div class="media-artwork">
+            ♫
+          </div>
+
+          <div class="media-player">
+
+            <h2 id="mediaTrack">
+              No music selected
+            </h2>
+
+            <p id="mediaArtist">
+              Choose an audio file
+            </p>
+
+            <audio id="audioPlayer"></audio>
+
+            <input
+              id="audioFiles"
+              type="file"
+              accept="audio/*"
+              multiple
+            >
+
+            <div class="music-controls">
+
+              <button id="prevTrack">⏮</button>
+              <button id="playTrack">▶</button>
+              <button id="nextTrack">⏭</button>
+
+            </div>
+
+            <div style="display:flex;
+                        justify-content:space-between;
+                        font-size:11px;">
+
+              <span id="currentTime">0:00</span>
+              <span id="duration">0:00</span>
+
+            </div>
+
+            <input
+              id="seekBar"
+              type="range"
+              min="0"
+              max="100"
+              value="0"
+            >
+
+            <label>VOLUME</label>
+
+            <input
+              id="volume"
+              type="range"
+              min="0"
+              max="1"
+              step="0.01"
+              value="0.8"
+            >
+
+          </div>
+
+        </div>
+
+        <div id="playlist"></div>
+
+      </section>
+
+
+      <!-- =========================
+           CAMERA PAGE
+      ========================== -->
+
+      <section id="camera" hidden>
+
+        <div class="page-header">
+
+          <h2>CAMERA SYSTEM</h2>
+
+          <button class="back-btn"
+                  data-back>
+            ← BACK
+          </button>
+
+        </div>
+
+        <div class="camera-grid">
+
+          <div class="camera-view">
+            <span>FRONT CAMERA</span>
+            <div class="camera-scene">FRONT VIEW</div>
+          </div>
+
+          <div class="camera-view">
+            <span>REAR CAMERA</span>
+            <div class="camera-scene">REAR VIEW</div>
+          </div>
+
+          <div class="camera-view">
+            <span>LEFT CAMERA</span>
+            <div class="camera-scene">LEFT VIEW</div>
+          </div>
+
+          <div class="camera-view">
+            <span>RIGHT CAMERA</span>
+            <div class="camera-scene">RIGHT VIEW</div>
+          </div>
+
+        </div>
+
+        <div class="camera-controls">
+
+          <button data-camera="360"
+                  class="selected">
+            360°
+          </button>
+
+          <button data-camera="front">
+            FRONT
+          </button>
+
+          <button data-camera="rear">
+            REAR
+          </button>
+
+          <button data-camera="left">
+            LEFT
+          </button>
+
+          <button data-camera="right">
+            RIGHT
+          </button>
+
+        </div>
+
+        <p id="cameraPreview"
+           style="text-align:center;
+                  font-size:11px;
+                  color:#999;">
+          360° SURROUND DEMO
+        </p>
+
+      </section>
+
+
+      <!-- =========================
+           PHONE PAGE
+      ========================== -->
+
+      <section id="phone" hidden>
+
+        <div class="page-header">
+
+          <h2>PHONE</h2>
+
+          <button class="back-btn"
+                  data-back>
+            ← BACK
+          </button>
+
+        </div>
+
+        <div class="phone-content">
+
+          <!-- CONTACTS -->
+
+          <div class="contacts-panel">
+
+            <h3>CONTACTS</h3>
+
+            <div class="contact-form">
+
+              <input
+                id="contactName"
+                type="text"
+                placeholder="Contact name"
+              >
+
+              <input
+                id="contactNumber"
+                type="tel"
+                placeholder="Phone number"
+              >
+
+              <button id="addContact"
+                      class="primary-btn">
+                + ADD CONTACT
+              </button>
+
+            </div>
+
+            <div id="contactList"></div>
+
+          </div>
+
+
+          <!-- DIAL PAD -->
+
+          <div class="dial-panel">
+
+            <h3>KEYPAD</h3>
+
+            <input
+              id="dialNumber"
+              type="tel"
+              placeholder="Enter number"
+            >
+
+            <div class="dial-pad">
+
+              <button data-digit="1">1</button>
+              <button data-digit="2">2</button>
+              <button data-digit="3">3</button>
+
+              <button data-digit="4">4</button>
+              <button data-digit="5">5</button>
+              <button data-digit="6">6</button>
+
+              <button data-digit="7">7</button>
+              <button data-digit="8">8</button>
+              <button data-digit="9">9</button>
+
+              <button data-digit="*">*</button>
+              <button data-digit="0">0</button>
+              <button data-digit="#">#</button>
+
+              <button id="deleteDigit">⌫</button>
+
+            </div>
+
+            <button id="callBtn"
+                    class="call-btn">
+              ☎ CALL
+            </button>
+
+            <button id="incomingDemo"
+                    class="primary-btn"
+                    style="width:100%;margin-top:8px;">
+              DEMO INCOMING CALL
+            </button>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           CALL SCREEN
+      ========================== -->
+
+      <section id="callScreen" hidden>
+
+        <div style="font-size:55px;">
+          ☎
+        </div>
+
+        <h2 id="callStatus">
+          CALLING...
+        </h2>
+
+        <h2 id="callerName">
+          Contact
+        </h2>
+
+        <p id="callerNumber">
+          Phone number
+        </p>
+
+        <div class="call-actions">
+
+          <button id="acceptCall">
+            ☎
+          </button>
+
+          <button id="endCall">
+            ✕
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           SETTINGS PAGE
+      ========================== -->
+
+      <section id="settings" hidden>
+
+        <div class="page-header">
+
+          <h2>SETTINGS</h2>
+
+          <button class="back-btn"
+                  data-back>
+            ← BACK
+          </button>
+
+        </div>
+
+        <div class="settings-content">
+
+          <div class="setting-item">
+
+            <label>INTERFACE COLOR</label>
+
+            <input
+              id="accentColor"
+              type="color"
+              value="#168cff"
+            >
+
+          </div>
+
+          <div class="setting-item">
+
+            <label>THEME</label>
+
+            <select id="themeSelect">
+
+              <option value="dark">Dark</option>
+              <option value="light">Light</option>
+
+            </select>
+
+          </div>
+
+          <div class="setting-item">
+
+            <label>SYSTEM LANGUAGE</label>
+
+            <select id="languageSelect">
+
+              <option value="uz">O‘zbekcha</option>
+              <option value="en">English</option>
+              <option value="ru">Русский</option>
+              <option value="ko">한국어</option>
+
+            </select>
+
+          </div>
+
+          <div class="setting-item">
+
+            <label>RESET SETTINGS</label>
+
+            <button id="resetSettings">
+              RESET
+            </button>
+
+          </div>
+
+          <div class="setting-item">
+
+            <label>SYSTEM VERSION</label>
+
+            <span>1.0.0</span>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           BOTTOM NAVIGATION
+      ========================== -->
+
+      <nav class="bottom-menu">
+
+        <button class="nav-btn active"
+                data-page="dashboard">
+
+          <span>🚘</span>
+          <small>Vehicle</small>
+
+        </button>
+
+        <button class="nav-btn"
+                data-page="navigation">
+
+          <span>🗺️</span>
+          <small>Map</small>
+
+        </button>
+
+        <button class="nav-btn"
+                data-page="media">
+
+          <span>🎵</span>
+          <small>Media</small>
+
+        </button>
+
+        <button class="nav-btn"
+                data-page="camera">
+
+          <span>📷</span>
+          <small>Camera</small>
+
+        </button>
+
+        <button class="nav-btn"
+                data-page="phone">
+
+          <span>📞</span>
+          <small>Phone</small>
+
+        </button>
+
+        <button class="nav-btn"
+                data-page="settings">
+
+          <span>⚙️</span>
+          <small>Settings</small>
+
+        </button>
+
+  
