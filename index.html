@@ -6,208 +6,254 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#000000">
   <title>Tesla Multimedia</title>
-  <link rel="stylesheet" href="style.css?v=20">
+  <link rel="stylesheet" href="style.css?v=21">
 </head>
 <body>
-  <div id="stage">
-    <div id="monitor">
-      <div id="app">
+<div id="stage">
+  <div id="monitor">
+    <div id="app">
 
-        <header class="top-bar">
-          <div class="top-left">
-            <span id="clock">00:00</span>
-            <span class="status-dot"></span>
-            <span class="status-text">ONLINE</span>
-          </div>
-          <div class="brand">TESLA <span>MULTIMEDIA</span></div>
-          <div class="top-right">
-            <span>Wi-Fi</span>
-            <span>100%</span>
-          </div>
-        </header>
+      <header class="top-bar">
+        <div class="top-left">
+          <span id="clock">00:00</span>
+          <span class="status-dot"></span>
+          <span class="status-text">ONLINE</span>
+        </div>
+        <div class="brand">TESLA <span>MULTIMEDIA</span></div>
+        <div class="top-right"><span>Wi-Fi</span><span>100%</span></div>
+      </header>
 
-        <main id="content">
+      <main id="content">
 
-          <!-- DASHBOARD -->
-          <section id="dashboard-screen" class="page active">
-            <div class="dashboard-grid">
+        <!-- DASHBOARD -->
+        <section id="dashboard-screen" class="page">
+          <div class="dashboard-grid">
 
-              <section class="panel vehicle-panel">
-                <div class="panel-title">VEHICLE</div>
-                <div class="vehicle-info">
-                  <span>Model S</span>
-                  <span class="vehicle-status">PARK</span>
-                </div>
-
-                <div class="car-area">
-                  
-                </div>
-
-                <div class="vehicle-stats">
-                  <div><strong>0</strong><small>km/h</small></div>
-                  <div><strong>85%</strong><small>Battery</small></div>
-                </div>
-              </section>
-
-              <section class="panel navigation-panel">
-                <div class="panel-title">NAVIGATION</div>
-                <div class="map-area">
-                  <div class="map-roads road-one"></div>
-                  <div class="map-roads road-two"></div>
-                  <div class="map-roads road-three"></div>
-                  <div class="map-roads road-four"></div>
-                  <div class="map-block block-one"></div>
-                  <div class="map-block block-two"></div>
-                  <div class="map-block block-three"></div>
-                  <div class="map-block block-four"></div>
-                  <div class="map-route"></div>
-                  <div class="map-pin">●</div>
-                  <div class="map-label">YOUR LOCATION</div>
-                  <div class="map-caption">DEMO MAP</div>
-               <svg class="car-svg" viewBox="0 0 220 390" role="img" aria-label="Avtomobil yuqoridan ko‘rinishi">
-                    <defs>
-                      <linearGradient id="carPaint" x1="0" x2="1" y1="0" y2="1">
-                        <stop offset="0%" stop-color="#f4f4f4"/>
-                        <stop offset="45%" stop-color="#777"/>
-                        <stop offset="100%" stop-color="#292929"/>
-                      </linearGradient>
-                      <linearGradient id="glass" x1="0" x2="0" y1="0" y2="1">
-                        <stop offset="0%" stop-color="#263d4a"/>
-                        <stop offset="100%" stop-color="#080f15"/>
-                      </linearGradient>
-                    </defs>
-                    <ellipse cx="110" cy="195" rx="67" ry="183" fill="#000" opacity=".5"/>
-                    <path d="M69 24 Q110 5 151 24 L174 65 L185 125 L185 275 L174 325 L151 365 Q110 383 69 365 L46 325 L35 275 L35 125 L46 65 Z"
-                      fill="url(#carPaint)" stroke="#ddd" stroke-width="2"/>
-                    <path d="M66 66 Q110 45 154 66 L166 116 L54 116 Z"
-                      fill="url(#glass)" stroke="#555" stroke-width="2"/>
-                    <path d="M54 130 L166 130 L166 245 L54 245 Z"
-                      fill="#30383d" stroke="#555" stroke-width="2"/>
-                    <path d="M54 258 L166 258 L154 319 Q110 339 66 319 Z"
-                      fill="url(#glass)" stroke="#555" stroke-width="2"/>
-                    <path d="M45 82 L28 91 L28 139 L42 145 Z" fill="#171717"/>
-                    <path d="M175 82 L192 91 L192 139 L178 145 Z" fill="#171717"/>
-                    <path d="M42 260 L28 268 L28 311 L46 314 Z" fill="#171717"/>
-                    <path d="M178 260 L192 268 L192 311 L174 314 Z" fill="#171717"/>
-                    <path d="M76 27 L144 27" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
-                    <path d="M77 356 L143 356" stroke="#e33" stroke-width="5" stroke-linecap="round"/>
-                    <path d="M110 119 L110 258" stroke="#777" stroke-width="1" opacity=".5"/>
-                    <path d="M57 190 L163 190" stroke="#777" stroke-width="1" opacity=".5"/>
-                    <circle cx="110" cy="190" r="9" fill="#aaa" opacity=".5"/>
-               </svg> 
-                </div>
-              </section>
-
-              <section class="panel music-panel">
-                <div class="panel-title">MEDIA PLAYER</div>
-                <div class="album-art">
-                  <span>♪</span>
-                </div>
-                <div class="track-info">
-                  <strong>No music playing</strong>
-                  <small>Select your music</small>
-                </div>
-                <div class="progress-track"><span></span></div>
-                <div class="music-time"><span>0:00</span><span>0:00</span></div>
-                <div class="player-controls">
-                  <button type="button" aria-label="Previous">◀◀</button>
-                  <button type="button" class="play-button" aria-label="Play">▶</button>
-                  <button type="button" aria-label="Next">▶▶</button>
-                </div>
-                <button type="button" class="open-media" data-page="media">OPEN MEDIA</button>
-              </section>
-
-            </div>
-          </section>
-
-          <!-- CAMERA -->
-          <section id="camera-screen" class="page" hidden>
-            <div class="page-heading">
-              <h2>CAMERA SYSTEM</h2>
-              <span class="demo-label">DEMO MODE</span>
-            </div>
-            <div class="camera-grid">
-              <div class="camera-view">
-                <span>FRONT CAMERA</span>
-                <div class="camera-scene">FRONT VIEW</div>
+            <!-- VEHICLE -->
+            <section class="panel vehicle-panel">
+              <div class="panel-title">VEHICLE</div>
+              <div class="vehicle-info">
+                <span>Model S</span>
+                <span class="vehicle-status">PARK</span>
               </div>
-              <div class="camera-view">
-                <span>REAR CAMERA</span>
-                <div class="camera-scene">REAR VIEW</div>
-              </div>
-              <div class="camera-view">
-                <span>LEFT CAMERA</span>
-                <div class="camera-scene">LEFT VIEW</div>
-              </div>
-              <div class="camera-view">
-                <span>RIGHT CAMERA</span>
-                <div class="camera-scene">RIGHT VIEW</div>
-              </div>
-            </div>
-            <div class="camera-footer">CAMERA SYSTEM <span>4 VIEWS</span></div>
-          </section>
 
-          <!-- MEDIA -->
-          <section id="media-screen" class="page" hidden>
-            <div class="page-heading"><h2>MEDIA</h2><span class="demo-label">PLAYER</span></div>
-            <div class="media-content">
-              <div class="large-album">♪</div>
-              <h2>No music playing</h2>
-              <p>Choose a music source to get started.</p>
-              <div class="large-controls">
+              <div class="car-area">
+                <svg class="car-svg" viewBox="0 0 260 480" role="img" aria-label="Tesla Model S">
+                  <defs>
+                    <linearGradient id="bodyPaint" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0" stop-color="#ffffff"/>
+                      <stop offset=".25" stop-color="#aeb9c7"/>
+                      <stop offset=".55" stop-color="#596574"/>
+                      <stop offset=".8" stop-color="#dce4ee"/>
+                      <stop offset="1" stop-color="#343d49"/>
+                    </linearGradient>
+                    <linearGradient id="roofGlass" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0" stop-color="#152331"/>
+                      <stop offset=".5" stop-color="#05090e"/>
+                      <stop offset="1" stop-color="#263b4e"/>
+                    </linearGradient>
+                    <linearGradient id="windshield" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0" stop-color="#506779"/>
+                      <stop offset=".4" stop-color="#101b27"/>
+                      <stop offset="1" stop-color="#080c12"/>
+                    </linearGradient>
+                  </defs>
+
+                  <!-- Wheels -->
+                  <g fill="#080a0d" stroke="#555e68" stroke-width="2">
+                    <rect x="22" y="92" width="28" height="76" rx="10"/>
+                    <rect x="210" y="92" width="28" height="76" rx="10"/>
+                    <rect x="22" y="316" width="28" height="76" rx="10"/>
+                    <rect x="210" y="316" width="28" height="76" rx="10"/>
+                  </g>
+
+                  <!-- Body -->
+                  <path d="M130 15 C91 15 70 32 60 65 L43 121 C35 151 34 183 34 218 L34 321 C34 365 45 402 65 433 C80 455 103 465 130 465 C157 465 180 455 195 433 C215 402 226 365 226 321 L226 218 C226 183 225 151 217 121 L200 65 C190 32 169 15 130 15Z"
+                    fill="url(#bodyPaint)" stroke="#e6edf5" stroke-width="2.5"/>
+
+                  <!-- Hood -->
+                  <path d="M75 54 Q130 28 185 54 L202 112 Q130 130 58 112Z"
+                    fill="url(#bodyPaint)" stroke="#8d99a8" stroke-width="1.5"/>
+
+                  <!-- Front glass -->
+                  <path d="M66 119 Q130 98 194 119 L181 181 Q130 194 79 181Z"
+                    fill="url(#windshield)" stroke="#647585" stroke-width="2"/>
+
+                  <!-- Panoramic roof -->
+                  <path d="M78 188 Q130 199 182 188 L187 310 Q130 325 73 310Z"
+                    fill="url(#roofGlass)" stroke="#71808c" stroke-width="2"/>
+
+                  <!-- Rear glass -->
+                  <path d="M73 319 Q130 335 187 319 L177 385 Q130 404 83 385Z"
+                    fill="url(#windshield)" stroke="#647585" stroke-width="2"/>
+
+                  <!-- Glass details -->
+                  <path d="M130 192 L130 318" stroke="#73818e" opacity=".4"/>
+                  <path d="M76 252 Q130 261 184 252" stroke="#596a79" opacity=".35" fill="none"/>
+
+                  <!-- Mirrors -->
+                  <path d="M43 112 L21 100 Q13 99 14 111 L36 131Z"
+                    fill="url(#bodyPaint)" stroke="#aab5c1"/>
+                  <path d="M217 112 L239 100 Q247 99 246 111 L224 131Z"
+                    fill="url(#bodyPaint)" stroke="#aab5c1"/>
+
+                  <!-- Doors -->
+                  <g fill="none" stroke="#59636e" stroke-width="1.2">
+                    <path d="M45 205 Q65 215 75 213"/>
+                    <path d="M215 205 Q195 215 185 213"/>
+                    <path d="M45 292 Q65 282 75 284"/>
+                    <path d="M215 292 Q195 282 185 284"/>
+                    <path d="M49 177 L49 330"/>
+                    <path d="M211 177 L211 330"/>
+                  </g>
+
+                  <!-- Handles -->
+                  <g fill="#303943">
+                    <rect x="42" y="229" width="17" height="4" rx="2"/>
+                    <rect x="201" y="229" width="17" height="4" rx="2"/>
+                    <rect x="42" y="273" width="17" height="4" rx="2"/>
+                    <rect x="201" y="273" width="17" height="4" rx="2"/>
+                  </g>
+
+                  <!-- Headlights -->
+                  <g fill="#e9f5ff">
+                    <path d="M69 48 Q85 37 99 37 L94 48 Q80 53 69 58Z"/>
+                    <path d="M191 48 Q175 37 161 37 L166 48 Q180 53 191 58Z"/>
+                  </g>
+
+                  <!-- Rear lights -->
+                  <path d="M73 414 Q130 432 187 414"
+                    fill="none" stroke="#ff3038" stroke-width="5" stroke-linecap="round"/>
+                  <path d="M78 420 Q130 437 182 420"
+                    fill="none" stroke="#ff8585" stroke-width="1.5"/>
+
+                  <!-- Emblem -->
+                  <path d="M124 444 Q130 439 136 444 L130 452Z" fill="#dce3eb"/>
+                </svg>
+              </div>
+
+              <div class="vehicle-stats">
+                <div><strong>0</strong><small>km/h</small></div>
+                <div><strong>85%</strong><small>Battery</small></div>
+              </div>
+            </section>
+
+            <!-- NAVIGATION -->
+            <section class="panel navigation-panel">
+              <div class="panel-title">NAVIGATION</div>
+              <div class="map-area">
+                <div class="map-roads road-one"></div>
+                <div class="map-roads road-two"></div>
+                <div class="map-roads road-three"></div>
+                <div class="map-roads road-four"></div>
+                <div class="map-block block-one"></div>
+                <div class="map-block block-two"></div>
+                <div class="map-block block-three"></div>
+                <div class="map-block block-four"></div>
+                <div class="map-route"></div>
+                <div class="map-pin">●</div>
+                <div class="map-label">YOUR LOCATION</div>
+                <div class="map-caption">DEMO MAP</div>
+              </div>
+            </section>
+
+            <!-- MEDIA PLAYER -->
+            <section class="panel music-panel">
+              <div class="panel-title">MEDIA PLAYER</div>
+              <div class="album-art"><span>♪</span></div>
+              <div class="track-info">
+                <strong>No music playing</strong>
+                <small>Select your music</small>
+              </div>
+              <div class="progress-track"><span></span></div>
+              <div class="music-time"><span>0:00</span><span>0:00</span></div>
+              <div class="player-controls">
                 <button type="button">◀◀</button>
                 <button type="button" class="play-button">▶</button>
                 <button type="button">▶▶</button>
               </div>
+              <button type="button" class="open-media" data-page="media">OPEN MEDIA</button>
+            </section>
+
+          </div>
+        </section>
+
+        <!-- CAMERA -->
+        <section id="camera-screen" class="page" hidden>
+          <div class="page-heading">
+            <h2>CAMERA SYSTEM</h2>
+            <span class="demo-label">DEMO MODE</span>
+          </div>
+          <div class="camera-grid">
+            <div class="camera-view"><span>FRONT CAMERA</span><div class="camera-scene">FRONT VIEW</div></div>
+            <div class="camera-view"><span>REAR CAMERA</span><div class="camera-scene">REAR VIEW</div></div>
+            <div class="camera-view"><span>LEFT CAMERA</span><div class="camera-scene">LEFT VIEW</div></div>
+            <div class="camera-view"><span>RIGHT CAMERA</span><div class="camera-scene">RIGHT VIEW</div></div>
+          </div>
+          <div class="camera-footer">CAMERA SYSTEM <span>4 VIEWS</span></div>
+        </section>
+
+        <!-- MEDIA PAGE -->
+        <section id="media-screen" class="page" hidden>
+          <div class="page-heading"><h2>MEDIA</h2><span class="demo-label">PLAYER</span></div>
+          <div class="media-content">
+            <div class="large-album">♪</div>
+            <h2>No music playing</h2>
+            <p>Choose your music source to get started.</p>
+            <div class="large-controls">
+              <button type="button">◀◀</button>
+              <button type="button" class="play-button">▶</button>
+              <button type="button">▶▶</button>
             </div>
-          </section>
+          </div>
+        </section>
 
-          <!-- PHONE -->
-          <section id="phone-screen" class="page" hidden>
-            <div class="page-heading"><h2>PHONE</h2><span class="demo-label">CONNECTED</span></div>
-            <div class="simple-content">
-              <div class="large-icon">☎</div>
-              <h2>Phone connection</h2>
-              <p>Telefon funksiyasi keyingi bosqichda ulanadi.</p>
-            </div>
-          </section>
+        <!-- PHONE PAGE -->
+        <section id="phone-screen" class="page" hidden>
+          <div class="page-heading"><h2>PHONE</h2><span class="demo-label">CONNECTED</span></div>
+          <div class="simple-content">
+            <div class="large-icon">☎</div>
+            <h2>Phone connection</h2>
+            <p>Telefon funksiyasi keyingi bosqichda ulanadi.</p>
+          </div>
+        </section>
 
-          <!-- SETTINGS -->
-          <section id="settings-screen" class="page" hidden>
-            <div class="page-heading"><h2>SETTINGS</h2><span class="demo-label">SYSTEM</span></div>
-            <div class="settings-list">
-              <div class="setting-row"><span>Display</span><span>›</span></div>
-              <div class="setting-row"><span>Sound</span><span>›</span></div>
-              <div class="setting-row"><span>Language</span><span>Uzbek</span></div>
-              <div class="setting-row"><span>System</span><span>›</span></div>
-              <div class="setting-row"><span>About</span><span>Version 1.0</span></div>
-            </div>
-          </section>
+        <!-- SETTINGS PAGE -->
+        <section id="settings-screen" class="page" hidden>
+          <div class="page-heading"><h2>SETTINGS</h2><span class="demo-label">SYSTEM</span></div>
+          <div class="settings-list">
+            <div class="setting-row"><span>Display</span><span>›</span></div>
+            <div class="setting-row"><span>Sound</span><span>›</span></div>
+            <div class="setting-row"><span>Language</span><span>Uzbek</span></div>
+            <div class="setting-row"><span>System</span><span>›</span></div>
+            <div class="setting-row"><span>About</span><span>Version 1.0</span></div>
+          </div>
+        </section>
 
-        </main>
+      </main>
 
-        <nav class="bottom-menu">
-          <button type="button" class="nav-button active" id="vehicleBtn" data-page="dashboard">
-            <span>🚘</span><small>Vehicle</small>
-          </button>
-          <button type="button" class="nav-button" id="musicBtn" data-page="media">
-            <span>🎵</span><small>Media</small>
-          </button>
-          <button type="button" class="nav-button" id="cameraBtn" data-page="camera">
-            <span>📷</span><small>Camera</small>
-          </button>
-          <button type="button" class="nav-button" id="phoneBtn" data-page="phone">
-            <span>📞</span><small>Phone</small>
-          </button>
-          <button type="button" class="nav-button" id="settingsBtn" data-page="settings">
-            <span>⚙️</span><small>Settings</small>
-          </button>
-        </nav>
+      <!-- BOTTOM MENU -->
+      <nav class="bottom-menu">
+        <button type="button" class="nav-button active" data-page="dashboard">
+          <span>🚘</span><small>Vehicle</small>
+        </button>
+        <button type="button" class="nav-button" data-page="media">
+          <span>🎵</span><small>Media</small>
+        </button>
+        <button type="button" class="nav-button" data-page="camera">
+          <span>📷</span><small>Camera</small>
+        </button>
+        <button type="button" class="nav-button" data-page="phone">
+          <span>📞</span><small>Phone</small>
+        </button>
+        <button type="button" class="nav-button" data-page="settings">
+          <span>⚙️</span><small>Settings</small>
+        </button>
+      </nav>
 
-      </div>
     </div>
   </div>
-
-  <script src="script.js?v=20"></script>
+</div>
+<script src="script.js?v=21"></script>
 </body>
 </html>
