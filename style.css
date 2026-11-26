@@ -130,3 +130,6 @@ html, body {
   font-size: 19px;
   padding: 5px;
 }
+body {
+  background: red !important;
+}
