@@ -5,75 +5,156 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="theme-color" content="#000000">
+
   <title>Tesla Multimedia</title>
-  <link rel="stylesheet" href="style.css?v=2">
+
+  <link rel="stylesheet" href="style.css?v=7">
 </head>
+
 <body>
 
-  <div id="app">
-    <header class="top-bar">
-      <div class="time" id="clock">00:00</div>
-      <div class="status">TESLA MULTIMEDIA</div>
-      <div class="temperature">22°C</div>
-    </header>
+  <div id="stage">
 
-    <main id="main-screen">
-      <section id="vehicle-section">
-        <h2>My Vehicle</h2>
-        
-<div class="vehicle-placeholder">
-  <svg viewBox="0 0 220 360" width="85%" height="85%">
-    <defs>
-      <linearGradient id="carPaint" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stop-color="#777"/>
-        <stop offset="50%" stop-color="#292929"/>
-        <stop offset="100%" stop-color="#111"/>
-      </linearGradient>
-    </defs>
-    <rect x="25" y="85" width="22" height="65" rx="7" fill="#050505"/>
-    <rect x="173" y="85" width="22" height="65" rx="7" fill="#050505"/>
-    <rect x="25" y="215" width="22" height="65" rx="7" fill="#050505"/>
-    <rect x="173" y="215" width="22" height="65" rx="7" fill="#050505"/>
-    <path d="M75 15 Q110 0 145 15 L175 65 Q188 90 188 125 L188 265 Q188 310 155 340 Q110 360 65 340 Q32 310 32 265 L32 125 Q32 90 45 65 Z"
-      fill="url(#carPaint)" stroke="#aaa" stroke-width="2"/>
-    <path d="M67 70 Q110 48 153 70 L165 135 L55 135 Z"
-      fill="#263b48" stroke="#777" stroke-width="2"/>
-    <path d="M55 145 L165 145 L165 235 L55 235 Z"
-      fill="#18252e" stroke="#777" stroke-width="2"/>
-    <path d="M55 245 L165 245 L153 300 Q110 325 67 300 Z"
-      fill="#263b48" stroke="#777" stroke-width="2"/>
-    <path d="M45 38 L72 32 M175 38 L148 32"
-      stroke="#fff" stroke-width="5" stroke-linecap="round"/>
-    <path d="M65 320 L155 320" stroke="#f33" stroke-width="5"/>
-  </svg>
-</div>
-        
-      </section>
+    <div id="monitor">
 
-      <section id="navigation-section">
-        <h2>Navigation</h2>
-        <div class="map-placeholder">
-          MAP
-        </div>
-      </section>
+      <div id="app">
 
-      <section id="music-section">
-        <h2>Media Player</h2>
-        <div class="music-placeholder">
-          No media playing
-        </div>
-      </section>
-    </main>
+        <!-- TOP BAR -->
+        <header class="top-bar">
+          <div class="time" id="clock">00:00</div>
+          <div class="status">TESLA MULTIMEDIA</div>
+          <div class="temperature">22°C</div>
+        </header>
 
-    <nav class="bottom-menu">
-      <button>🚘</button>
-      <button>🗺️</button>
-      <button>🎵</button>
-      <button>📞</button>
-      <button>⚙️</button>
-    </nav>
+        <!-- MAIN DISPLAY -->
+        <main id="main-screen">
+
+          <!-- VEHICLE -->
+          <section id="vehicle-section">
+
+            <h2>My Vehicle</h2>
+
+            <div class="vehicle-placeholder">
+
+              <svg viewBox="0 0 220 360"
+                   width="85%"
+                   height="85%"
+                   xmlns="http://www.w3.org/2000/svg">
+
+                <defs>
+                  <linearGradient id="carPaint" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#777"/>
+                    <stop offset="50%" stop-color="#292929"/>
+                    <stop offset="100%" stop-color="#111"/>
+                  </linearGradient>
+                </defs>
+
+                <!-- Wheels -->
+                <rect x="25" y="85" width="22" height="65" rx="7" fill="#050505"/>
+                <rect x="173" y="85" width="22" height="65" rx="7" fill="#050505"/>
+                <rect x="25" y="215" width="22" height="65" rx="7" fill="#050505"/>
+                <rect x="173" y="215" width="22" height="65" rx="7" fill="#050505"/>
+
+                <!-- Car body -->
+                <path
+                  d="M75 15 Q110 0 145 15
+                  L175 65 Q188 90 188 125
+                  L188 265 Q188 310 155 340
+                  Q110 360 65 340
+                  Q32 310 32 265
+                  L32 125 Q32 90 45 65 Z"
+                  fill="url(#carPaint)"
+                  stroke="#aaa"
+                  stroke-width="2"/>
+
+                <!-- Front glass -->
+                <path
+                  d="M67 70 Q110 48 153 70
+                  L165 135 L55 135 Z"
+                  fill="#263b48"
+                  stroke="#777"
+                  stroke-width="2"/>
+
+                <!-- Roof glass -->
+                <path
+                  d="M55 145 L165 145
+                  L165 235 L55 235 Z"
+                  fill="#18252e"
+                  stroke="#777"
+                  stroke-width="2"/>
+
+                <!-- Rear glass -->
+                <path
+                  d="M55 245 L165 245
+                  L153 300 Q110 325 67 300 Z"
+                  fill="#263b48"
+                  stroke="#777"
+                  stroke-width="2"/>
+
+                <!-- Headlights -->
+                <path d="M45 38 L72 32"
+                  stroke="white"
+                  stroke-width="5"
+                  stroke-linecap="round"/>
+
+                <path d="M175 38 L148 32"
+                  stroke="white"
+                  stroke-width="5"
+                  stroke-linecap="round"/>
+
+                <!-- Rear lights -->
+                <path d="M65 320 L155 320"
+                  stroke="red"
+                  stroke-width="5"/>
+
+              </svg>
+
+            </div>
+
+          </section>
+
+          <!-- NAVIGATION -->
+          <section id="navigation-section">
+
+            <h2>Navigation</h2>
+
+            <div class="map-placeholder">
+              MAP
+            </div>
+
+          </section>
+
+          <!-- MUSIC -->
+          <section id="music-section">
+
+            <h2>Media Player</h2>
+
+            <div class="music-placeholder">
+              No media playing
+            </div>
+
+          </section>
+
+        </main>
+
+        <!-- BOTTOM MENU -->
+        <nav class="bottom-menu">
+
+          <button aria-label="Vehicle">🚘</button>
+          <button aria-label="Navigation">🗺️</button>
+          <button aria-label="Music">🎵</button>
+          <button aria-label="Phone">📞</button>
+          <button aria-label="Settings">⚙️</button>
+
+        </nav>
+
+      </div>
+
+    </div>
+
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=7"></script>
+
 </body>
 </html>
