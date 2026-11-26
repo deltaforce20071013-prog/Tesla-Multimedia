@@ -1,65 +1,34 @@
 
-// TESLA MULTIMEDIA SYSTEM
+const dashboard = document.getElementById("main-screen");
+const cameraScreen = document.getElementById("camera-screen");
 
-// 1. Haqiqiy vaqt
+const vehicleBtn = document.getElementById("vehicleBtn");
+const cameraBtn = document.getElementById("cameraBtn");
+
+function showScreen(screen) {
+  dashboard.hidden = screen !== "dashboard";
+  cameraScreen.hidden = screen !== "camera";
+}
+
+vehicleBtn.addEventListener("click", () => {
+  showScreen("dashboard");
+});
+
+cameraBtn.addEventListener("click", () => {
+  showScreen("camera");
+});
+
+// Real vaqt soati
 function updateClock() {
   const now = new Date();
 
   document.getElementById("clock").textContent =
     now.toLocaleTimeString("uz-UZ", {
       hour: "2-digit",
-      minute: "2-digit"
+      minute: "2-digit",
+      hour12: false
     });
 }
 
 updateClock();
 setInterval(updateClock, 1000);
-
-
-// 2. Menyu boshqaruvi
-const sections = [
-  "vehicle-section",
-  "navigation-section",
-  "music-section"
-];
-
-const menuButtons = document.querySelectorAll(
-  ".bottom-menu button"
-);
-
-menuButtons.forEach((button, index) => {
-  button.addEventListener("click", () => {
-
-    if (index === 0) {
-      showSection("vehicle-section");
-    }
-
-    if (index === 1) {
-      showSection("navigation-section");
-    }
-
-    if (index === 2) {
-      showSection("music-section");
-    }
-
-    if (index === 3) {
-      alert("Phone interface coming soon");
-    }
-
-    if (index === 4) {
-      alert("Settings coming soon");
-    }
-
-  });
-});
-
-function showSection(sectionId) {
-  sections.forEach(id => {
-    const section = document.getElementById(id);
-
-    section.style.display =
-      id === sectionId ? "block" : "none";
-  });
-}
-
-console.log("Tesla Multimedia System loaded!");
